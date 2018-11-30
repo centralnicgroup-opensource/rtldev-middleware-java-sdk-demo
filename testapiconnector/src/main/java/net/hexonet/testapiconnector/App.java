@@ -2,7 +2,6 @@ package net.hexonet.testapiconnector;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.xml.ws.Response;
 import net.hexonet.apiconnector.APIClient;
 import net.hexonet.apiconnector.Response;
 
@@ -15,15 +14,13 @@ public class App {
 
         // perform an api login and create an api session
         APIClient cl = new APIClient();
-        cl.useOTESystem().setCredentials("test.user", "test.password")
+        cl.useOTESystem().setCredentials("test.user", "test.passw0rd")
                 // --- use this if you have active ip filter settings ---
-                .setRemoteIpAddress("1.2.3.4");
-        // ------------------------------------------------------
+                .setRemoteIPAddress("1.2.3.4");
 
         Response r = cl.login();
         // --- use this for 2-Factor Auth ---
-        // Response r = cl.login();
-        // ----------------------------------
+        // Response r = cl.login("1234567");
 
         if (r.isSuccess()) {
             System.out.println("Login succeeded.");
