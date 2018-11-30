@@ -1,9 +1,10 @@
 package net.hexonet.testapiconnector;
 
-import net.hexonet.apiconnector.Client;
-import net.hexonet.apiconnector.ListResponse;
 import java.util.HashMap;
 import java.util.Map;
+import javax.xml.ws.Response;
+import net.hexonet.apiconnector.APIClient;
+import net.hexonet.apiconnector.Response;
 
 /**
  * Hello world!
@@ -13,16 +14,16 @@ public class App {
     public static void main(String[] args) {
 
         // perform an api login and create an api session
-        Map<String, String> cfg = new HashMap<String, String>();
-        cfg.put("login", "test.user");
-        cfg.put("pw", "test.passw0rd");
-        cfg.put("entity", "1234");
+        APIClient cl = new APIClient();
+        cl.useOTESystem().setCredentials("test.user", "test.password")
+                // --- use this if you have active ip filter settings ---
+                .setRemoteIpAddress("1.2.3.4");
+        // ------------------------------------------------------
+
+        Response r = cl.login();
         // --- use this for 2-Factor Auth ---
-        // cfg.put("otp", "my_otp_code");
-        // --- use this if you have active ip filter settings ---
-        // cfg.put("remoteaddr", "client's remote ip address");
-        Client cl = new Client();
-        ListResponse r = cl.login(cfg);
+        // Response r = cl.login();
+        // ----------------------------------
 
         if (r.isSuccess()) {
             System.out.println("Login succeeded.");
