@@ -21,4 +21,4 @@ cache:
     - $HOME/.cache/yarn
     - $HOME/.cache/pip
 script:
-  - cd testapiconnector && mvn exec:java
+  - cd testapiconnector && mvn compile exec:java
