@@ -1,0 +1,24 @@
+language: java
+dist: xenial
+notifications:
+  email:
+    recipients:
+    - kschwarz@hexonet.net
+    on_success: never
+    on_failure: always
+sudo: false
+install: true
+jdk:
+  - oraclejdk11
+  - openjdk11
+  - openjdk-ea
+matrix:
+  allow_failures:
+    - jdk: openjdk-ea
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.cache/yarn
+    - $HOME/.cache/pip
+script:
+  - cd testapiconnector && mvn exec:java
