@@ -6,8 +6,12 @@ notifications:
     - kschwarz@hexonet.net
     on_success: never
     on_failure: always
-sudo: false
 install: true
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.cache/yarn
+    - $HOME/.cache/pip
 jdk:
   - oraclejdk11
   - openjdk11
@@ -15,10 +19,11 @@ jdk:
 matrix:
   allow_failures:
     - jdk: openjdk-ea
-cache:
-  directories:
-    - $HOME/.m2
-    - $HOME/.cache/yarn
-    - $HOME/.cache/pip
+# Trigger a push build on master and dependabot branches + PRs build on every branches
+# Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
+branches:
+  only:
+    - master
+    - /^dependabot.*$/
 script:
   - cd testapiconnector && mvn compile exec:java
