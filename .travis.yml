@@ -10,8 +10,6 @@ install: true
 cache:
   directories:
     - $HOME/.m2
-    - $HOME/.cache/yarn
-    - $HOME/.cache/pip
 jdk:
   - oraclejdk11
   - openjdk11
