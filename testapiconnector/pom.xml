@@ -22,7 +22,7 @@
     <dependency>
 	    <groupId>net.hexonet.apiconnector</groupId>
 	    <artifactId>java-sdk</artifactId>
-	    <version>2.3.4</version>
+	    <version>3.0.0</version>
 	  </dependency>
   </dependencies>
 
