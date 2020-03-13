@@ -25,7 +25,7 @@ public class App {
         if (r.isSuccess()) {
             System.out.println("Login succeeded.");
             // perform further api request reusing the generated api session
-            Map<String, String> cmd = new HashMap<String, String>();
+            Map<String, Object> cmd = new HashMap<String, Object>();
             cmd.put("COMMAND", "StatusAccount");
             r = cl.request(cmd);
             if (r.isSuccess()) {
