@@ -1,8 +1,0 @@
-version: 1
-
-update_configs:
-  - package_manager: "java:maven"
-    directory: "/testapiconnector/"
-    update_schedule: "daily"
-    commit_message:
-      prefix: "chore"
