@@ -3,14 +3,14 @@ on: [push, pull_request]
 
 jobs:
   test:
-    name: Test @ PHP ${{ matrix.php-version }} - x86 - ubuntu-latest
+    name: Test @ Java ${{ matrix.java-version }} - x86 - ubuntu-latest
     # Support [skip ci] out of box with github actions Workaround
     # Only works for push https://github.com/actions/runner/issues/774
     if: github.event_name == 'pull_request' || (github.event_name == 'push' && contains(toJson(github.event.commits), '[skip ci]') == false)
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java-version: [15, 16, 17]
+        java-version: [15]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
