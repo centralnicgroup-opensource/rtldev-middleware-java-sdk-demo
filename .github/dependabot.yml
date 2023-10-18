@@ -1,9 +1,18 @@
 version: 2
 updates:
-- package-ecosystem: maven
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore(ci dep)"
+      include: "scope"
+
+- package-ecosystem: "maven"
   directory: "/testapiconnector"
   schedule:
-    interval: daily
-  open-pull-requests-limit: 10
+    interval: "daily"
   commit-message:
-    prefix: chore
+    prefix: "fix(maven dep)"
+    prefix-development: "chore(maven dev dep)"
+    include: "scope"
