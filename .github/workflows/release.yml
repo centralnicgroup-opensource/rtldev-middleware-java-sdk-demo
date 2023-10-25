@@ -1,5 +1,6 @@
-name: Release
+name: Test
 on: 
+  workflow_call:
   # will run for every branch, except tags. See RSRMID-206.
   push:
     # Sequence of patterns matched against refs/heads
@@ -16,7 +17,7 @@ on:
 
 jobs:
   test:
-    name: Test @ Java ${{ matrix.java-version }} - x86 - ubuntu-latest
+    name: 🧪 Testing
     if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.actor != 'dependabot[bot]')
     runs-on: ubuntu-latest
     strategy:
