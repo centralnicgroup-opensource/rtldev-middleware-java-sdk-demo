@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: "daily"
     commit-message:
-      prefix: "chore(ci dep)"
+      prefix: "chore"
       include: "scope"
 
 - package-ecosystem: "maven"
@@ -13,6 +13,6 @@ updates:
   schedule:
     interval: "daily"
   commit-message:
-    prefix: "fix(maven dep)"
-    prefix-development: "chore(maven dev dep)"
+    prefix: "fix"
+    prefix-development: "chore"
     include: "scope"
