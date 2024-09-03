@@ -19,6 +19,10 @@ jobs:
         with:
           java-version: ${{ matrix.java-version }}
           distribution: ${{ vars.RTLDEV_MW_CI_JAVA_DISTRO }}
-      - run: |
+      - name: Compile and Execute Test Run
+        env:
+          CNR_TEST_USER: ${{ secrets.CNR_TEST_USER }}
+          CNR_TEST_PASSWORD: ${{ secrets.CNR_TEST_PASSWORD }}
+        run: |
           cd testapiconnector 
           mvn compile exec:java
