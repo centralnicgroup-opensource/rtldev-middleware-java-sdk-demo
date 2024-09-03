@@ -1,9 +1,9 @@
-package net.hexonet.testapiconnector;
+package com.centralnicreseller.testapiconnector;
 
 import java.util.HashMap;
 import java.util.Map;
-import net.hexonet.apiconnector.APIClient;
-import net.hexonet.apiconnector.Response;
+import com.centralnicreseller.apiconnector.APIClient;
+import com.centralnicreseller.apiconnector.Response;
 
 /**
  * Hello world!
@@ -14,9 +14,7 @@ public class App {
 
         // perform an api login and create an api session
         APIClient cl = new APIClient();
-        cl.useOTESystem().setCredentials("test.user", "test.passw0rd")
-                // --- use this if you have active ip filter settings ---
-                .setRemoteIPAddress("1.2.3.4");
+        cl.useOTESystem().setCredentials(System.getenv("CNR_TEST_USER"), System.getenv("CNR_TEST_PASSWORD"));
 
         Response r = cl.login();
         // --- use this for 2-Factor Auth ---
